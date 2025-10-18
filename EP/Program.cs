@@ -74,3 +74,48 @@ namespace ElectroPlus
             }
         }
     }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Inventario inventario = new Inventario();
+            bool salir = false;
+
+            while (!salir)
+            {
+                Console.WriteLine("\n--- Menú ElectroPlus ---");
+                Console.WriteLine("a. Agregar producto");
+                Console.WriteLine("b. Listar productos");
+                Console.WriteLine("c. Buscar producto por código");
+                Console.WriteLine("d. Mostrar productos sin stock");
+                Console.WriteLine("e. Salir");
+                Console.Write("Seleccione una opción: ");
+                string opcion = Console.ReadLine();
+
+                switch (opcion.ToLower())
+                {
+                    case "a":
+                        inventario.AgregarProducto();
+                        break;
+                    case "b":
+                        inventario.ListarProductos();
+                        break;
+                    case "c":
+                        inventario.BuscarPorCodigo();
+                        break;
+                    case "d":
+                        inventario.MostrarSinStock();
+                        break;
+                    case "e":
+                        salir = true;
+                        break;
+                    default:
+                        Console.WriteLine("Opción no válida.");
+                        break;
+                }
+            }
+
+            Console.WriteLine("Programa finalizado.");
+        }
+    }
+}
