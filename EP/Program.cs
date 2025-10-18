@@ -46,3 +46,21 @@ namespace ElectroPlus
             productos.Add(p);
             Console.WriteLine("Producto agregado con éxito.");
         }
+        public void ListarProductos()
+        {
+            Console.WriteLine("\n--- Lista de Productos ---");
+            foreach (var p in productos)
+                Console.WriteLine(p.ToString());
+        }
+
+        public void BuscarPorCodigo()
+        {
+            Console.Write("Ingrese código a buscar: ");
+            string codigo = Console.ReadLine();
+            Producto encontrado = productos.Find(p => p.Codigo == codigo);
+
+            if (encontrado != null)
+                Console.WriteLine(encontrado.ToString());
+            else
+                Console.WriteLine("Producto no encontrado.");
+        }
