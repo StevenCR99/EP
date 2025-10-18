@@ -64,3 +64,13 @@ namespace ElectroPlus
             else
                 Console.WriteLine("Producto no encontrado.");
         }
+        public void MostrarSinStock()
+        {
+            Console.WriteLine("\n--- Productos sin stock ---");
+            foreach (var p in productos)
+            {
+                if (p.Cantidad == 0)
+                    Console.WriteLine(p.ToString());
+            }
+        }
+    }
